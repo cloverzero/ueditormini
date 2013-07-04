@@ -1,9 +1,9 @@
 .edui-toolbar .btn .icon-bold{
-    background-position: -2px -2px;
+    background-position: 0 0;
 }
 .edui-toolbar .btn .icon-italic {
-    background-position: -2px -2px;
+    background-position: -60px 0;
 }
 .edui-toolbar .btn .icon-underline {
-    background-position: -2px -2px;
+    background-position: -140px 0;
 }
