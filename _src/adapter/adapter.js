@@ -160,45 +160,31 @@
             var editor = new UE.Editor(opt);
             var T = this;
             utils.loadFile(document,{
-                href: editor.options.themePath + editor.options.theme + "/" + editor.options.theme + '.css',
+                href: editor.options.themePath +editor.options.theme+ "/_css/ueditor.css",
                 tag:"link",
                 type:"text/css",
                 rel:"stylesheet"
             },function(){
-                utils.loadFile(document,{
-                    href: editor.options.themePath + "font/font.css",
-                    tag:"link",
-                    type:"text/css",
-                    rel:"stylesheet"
-                },function(){
-                    utils.loadFile(document,{
-                        href: editor.options.themePath + "base/ueditor.css",
-                        tag:"link",
-                        type:"text/css",
-                        rel:"stylesheet"
-                    },function(){
-                        editor.langIsReady ? $.proxy(renderUI,T)() : editor.addListener("langReady", $.proxy(renderUI,T));
-                        function renderUI(){
-                            var $container = this.createUI('#' + id, editor);
-                            editor.ready(function(){
-                                $.each( _readyFn, function( index, fn ){
-                                    $.proxy( fn, editor )();
-                                } );
-                            });
+                editor.langIsReady ? $.proxy(renderUI,T)() : editor.addListener("langReady", $.proxy(renderUI,T));
+                function renderUI(){
+                    var $container = this.createUI('#' + id, editor);
+                    editor.ready(function(){
+                        $.each( _readyFn, function( index, fn ){
+                            $.proxy( fn, editor )();
+                        } );
+                    });
 
-                            editor.render(id);
-                            $container.css({
-                                width: $(editor.iframe).width()
-                            });
+                    editor.render(id);
+                    $container.css({
+                        width: $(editor.iframe).width()
+                    });
 
-                            //添加tooltip;
-                            $.eduitooltip('attachTo');
-                            $container.find('a').click(function(evt){
-                                evt.preventDefault()
-                            })
-                        }
+                    //添加tooltip;
+                    $.eduitooltip('attachTo');
+                    $container.find('a').click(function(evt){
+                        evt.preventDefault()
                     })
-                })
+                }
             });
 
 

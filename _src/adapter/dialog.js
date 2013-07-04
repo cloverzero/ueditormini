@@ -34,7 +34,8 @@
                     var me = this, currentRange, dialog,
                         opt = {
                             title: (me.options.labelMap && me.options.labelMap[name]) || me.getLang("labelMap." + name),
-                            url: me.options.UEDITOR_HOME_URL + '/dialogs/' + (me.options.iframeUrlMap[name] || iframeUrlMap[name])
+                            url: me.options.UEDITOR_HOME_URL + '/dialogs/' +
+                                ((me.options.iframeUrlMap && me.options.iframeUrlMap[name]) || iframeUrlMap[name])
                         };
 
                     if (type == "ok") {
