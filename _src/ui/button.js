@@ -11,28 +11,40 @@ UE.ui.define('button', {
         width: '',
         mode: '',
         caret: false,
-        texttype:false,
-        click: function(){}
+        texttype: false,
+        click: function () {
+        }
     },
     init: function (options) {
         var me = this;
-        me.root($($.parseTmpl(me.tpl, options))).click(function (evt) {
-            me.wrapclick(options.click,evt)
-        });
+        me.root($($.parseTmpl(me.tpl, options)))
+            .click(function (evt) {
+                me.wrapclick(options.click, evt)
+            });
+
+
+        //处理ie6以下不支持:hover伪类
+        if ($.IE6) {
+            me.root().hover(function () {
+                me.root().toggleClass('hover')
+            });
+        }
+
+
         return me;
     },
-    wrapclick:function(fn,evt){
-        if(!this.disabled()){
+    wrapclick: function (fn, evt) {
+        if (!this.disabled()) {
             this.root().trigger('wrapclick');
-            $.proxy(fn,this,evt)()
+            $.proxy(fn, this, evt)()
         }
         return this;
     },
-    label: function( text ){
-        if( text === undefined ) {
+    label: function (text) {
+        if (text === undefined) {
             return this.root().find('.edui-button-label').text();
         } else {
-            this.root().find('.edui-button-label').text( text );
+            this.root().find('.edui-button-label').text(text);
             return this;
         }
     },
@@ -50,19 +62,19 @@ UE.ui.define('button', {
         this.root().toggleClass('active', state);
         return this;
     },
-    mergeWith:function($obj){
+    mergeWith: function ($obj) {
         var me = this;
-        me.data('$mergeObj',$obj);
-        $obj.edui().data('$mergeObj',me.root());
-        if(!$.contains(document.body,$obj[0])){
+        me.data('$mergeObj', $obj);
+        $obj.edui().data('$mergeObj', me.root());
+        if (!$.contains(document.body, $obj[0])) {
             $obj.appendTo(me.root());
         }
-        me.on('click',function(){
-            me.wrapclick(function(){
+        me.on('click',function () {
+            me.wrapclick(function () {
                 $obj.edui().show();
             })
-        }).register('click',me.root(),function(evt){
-            $obj.hide()
-        });
+        }).register('click', me.root(), function (evt) {
+                $obj.hide()
+            });
     }
 });
