@@ -1,5 +1,6 @@
 .edui-btn-toolbar .edui-btn-group{
     margin: 5px;
+    position: relative;
     display: inline-block !important;_zoom:1;_display:inline;
 }
 .edui-btn-group .btn{
