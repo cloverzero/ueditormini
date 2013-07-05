@@ -1,8 +1,8 @@
-.edui-btn-group .btn .icon-fullscreen {
+.edui-btn-group .btn .icon-resize-full {
     background-position: -140px 0;
 }
 .edui-btn-group .btn .icon-source {
-    background-position: -140px 0;
+    background-position:-260px -0px;
 }
 .edui-btn-group .btn .icon-undo {
     background-position: -160px 0;
@@ -15,6 +15,9 @@
 }
 .edui-btn-group  .btn .icon-italic {
     background-position: -60px 0;
+}
+.edui-btn-group  .btn .icon-underline  {
+    background-position: -140px 0
 }
 .edui-btn-group .btn .icon-strikethrough {
     background-position: -120px 0;
