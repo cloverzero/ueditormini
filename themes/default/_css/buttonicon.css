@@ -29,11 +29,8 @@
 .edui-btn-group .btn .icon-subscript {
     background-position:  -600px 0;
 }
-.edui-btn-group .btn .icon-forecolor {
+.edui-btn-group .btn .icon-font {
     background-position: -720px 0;
-}
-.edui-btn-group .btn .icon-backcolor {
-    background-position:  -760px 0;
 }
 
 .edui-btn-group .btn .icon-insertorderedlist {
